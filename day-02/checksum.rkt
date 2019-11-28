@@ -2,6 +2,14 @@
 
 (struct char-count (two three) #:transparent )
 
+(define (checksum strings)
+  (define (checksum-parts-fold input-str current-count)
+	(checksum-parts current-count input-str))
+  (let ([checksum-count (foldl checksum-parts-fold (char-count 0 0) strings)])
+	(* (char-count-two checksum-count) (char-count-three checksum-count))
+  )
+)
+
 (define (checksum-parts current-count input-str)
   (define (is-checksum-number n)
     (or (= n 2) (= n 3)))
@@ -32,6 +40,7 @@
   )
   
 (provide char-count
+		 checksum
          checksum-parts
          count-chars
          next-char-hash
