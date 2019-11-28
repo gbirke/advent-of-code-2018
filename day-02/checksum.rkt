@@ -6,7 +6,13 @@
   current-count
   )
 
-(define (count-chars str) #f)
+(define (count-chars str)
+  (foldl
+     next-char-hash
+     #hash()
+     (string->list str)
+   )
+)
 
 (define (next-char-hash current-char result-hash)
   (hash-set result-hash current-char (+ 1 (hash-ref result-hash current-char 0)))
