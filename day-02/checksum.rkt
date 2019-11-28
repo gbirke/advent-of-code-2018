@@ -1,9 +1,9 @@
 #lang racket
 
-(struct char-count (three two) #:transparent )
+(struct char-count (two three) #:transparent )
 
 (define (count-chars current-count input-str)
-  #f
+  current-count
   )
 
 (provide char-count
