@@ -6,7 +6,7 @@
   #f
   )
 
-(define (checksum-parts current-count input-str)
+(define (checksum-parts input-str current-count)
   (define (list-contains-number list number)
     (if (member number list) 1 0)
   )
