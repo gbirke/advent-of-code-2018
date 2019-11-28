@@ -3,9 +3,12 @@
 (struct char-count (two three) #:transparent )
 
 (define (checksum-parts current-count input-str)
-  current-count
+  (define (is-checksum-number n)
+    (or (= n 2) (= n 3)))
+  ( remove-duplicates (filter is-checksum-number (hash-values (count-chars input-str)))
+  
   )
-
+)
 (define (count-chars str)
   (foldl
      next-char-hash
