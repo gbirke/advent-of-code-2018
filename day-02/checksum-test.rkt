@@ -19,3 +19,4 @@
 (check-equal? (next-char-hash "a" #hash()) #hash(("a" . 1)) "Should create a hash")
 (check-equal? (next-char-hash "a" #hash(("a" . 1)("b" . 1))) #hash(("a" . 2)("b" . 1)) "Should create an updated hash")
 
+(printf "All tests done\n")
