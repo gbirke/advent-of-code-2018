@@ -3,7 +3,9 @@
 (struct char-count (two three) #:transparent )
 
 (define (checksum-for-list list-of-codes)
-  #f
+  (define checksum-struct (checksum-struct-for-list list-of-codes))
+
+  (* (char-count-two checksum-struct) (char-count-three checksum-struct))
 )
 
 (define (checksum-struct-for-list list-of-codes)
