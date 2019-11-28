@@ -3,6 +3,9 @@
 (require rackunit
          "checksum.rkt")
 
+(check-equal? (checksum-for-list (list "abcdef" "bababc" "abbcde" "abcccd" "aabcdd" "abcdee" "ababab")) 12 "Calculate checksum for realistic list")
+
+
 (check-equal? (checksum-struct-for-list (list "bababc")) (char-count 1 1) "Calculate checksum struct list with one item")
 (check-equal? (checksum-struct-for-list (list "abcdef" "bababc" "abbcde" "abcccd" "aabcdd" "abcdee" "ababab")) (char-count 4 3) "Calculate checksum struct for realistic list")
 

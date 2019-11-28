@@ -2,9 +2,13 @@
 
 (struct char-count (two three) #:transparent )
 
-(define (checksum-struct-for-list list)
+(define (checksum-for-list list-of-codes)
   #f
-  )
+)
+
+(define (checksum-struct-for-list list-of-codes)
+  (foldl checksum-parts (char-count 0 0) list-of-codes)
+)
 
 (define (checksum-parts input-str current-count)
   (define (list-contains-number list number)
@@ -31,7 +35,8 @@
   (hash-set result-hash current-char (+ 1 (hash-ref result-hash current-char 0)))
   )
   
-(provide checksum-struct-for-list
+(provide checksum-for-list
+         checksum-struct-for-list
          char-count
          checksum-parts
          count-chars
